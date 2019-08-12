@@ -1,0 +1,110 @@
+<div class="lyt-content" [ngClass]="{'active':transacService.isActive}">
+    <div class="bs-form typ-center">
+        <h2 class="form-title">New Transaction</h2>
+        <form id="transactionForm" [formGroup]="transactionForm" novalidate (ngSubmit)="storeData()">
+            <div class="formfield">
+                <mat-form-field class="example-full-width form-control">
+                    <input maxlength="15" formControlName="reference" matInput placeholder="Reference Number" readonly>
+                    <mat-error class="error-wrap" *ngIf="transactionForm.get('reference').invalid && transactionForm.get('reference').touched">
+                        <span class="error-field">Reference number is required</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="group-wrap" formGroupName="customerInfo">
+                <div class="formfield">
+                    <mat-form-field class="example-full-width form-control">
+                        <input maxlength="5" numberOnly formControlName="cnumber" matInput placeholder="Customer Number" (blur)="getCustomerInfo()">
+                        <mat-error class="error-wrap" *ngIf="transactionForm.get('customerInfo.cnumber').invalid && transactionForm.get('customerInfo.cnumber').touched">
+                            <span class="error-field">Customer number is required</span>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="formfield">
+                    <mat-form-field class="example-full-width form-control">
+                        <input formControlName="cname" matInput placeholder="Customer Name">
+                        <mat-error class="error-wrap" *ngIf="transactionForm.get('customerInfo.cname').invalid && transactionForm.get('customerInfo.cname').touched">
+                            <span class="error-field">Customer name is required</span>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="formfield">
+                    <mat-form-field class="example-full-width form-control">
+                        <textarea formControlName="address" matInput placeholder="Address"></textarea>
+                        <mat-error class="error-wrap" *ngIf="transactionForm.get('customerInfo.address').invalid && transactionForm.get('customerInfo.address').touched">
+                            <span class="error-field">Address is required</span>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="formfield">
+                    <mat-form-field class="example-full-width form-control">
+                        <input numberOnly formControlName="phnumber"  matInput placeholder="Phone Number">
+                        <mat-error class="error-wrap" *ngIf="transactionForm.get('customerInfo.phnumber').invalid && transactionForm.get('customerInfo.phnumber').touched">
+                            <span class="error-field">Phone number is required</span>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="formfield">
+                <mat-form-field class="example-full-width form-control">
+                    <input numberOnly formControlName="transferamt" matInput placeholder="Transfer Amount">
+                    <mat-error class="error-wrap" *ngIf="transactionForm.get('transferamt').invalid && transactionForm.get('transferamt').touched">
+                        <span class="error-field">Transfer Amount is required</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="formfield">
+                <mat-form-field class="example-full-width form-control">
+                    <mat-select formControlName="currency" placeholder="Transfer Currency">
+                        <mat-option value="AED">AED</mat-option>
+                        <mat-option value="EUR">EUR</mat-option>
+                        <mat-option value="CHF">CHF</mat-option>
+                        <mat-option value="MUR">MUR</mat-option>
+                        <mat-option value="USD">USD</mat-option>
+                    </mat-select>
+                    <mat-error class="error-wrap" *ngIf="transactionForm.get('currency').invalid && transactionForm.get('currency').touched">
+                        <span class="error-field">Currency is required</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="formfield">
+                <mat-form-field class="example-full-width form-control">
+                    <input formControlName="bb" [value]="transactionForm.get('bb').value | uppercase" matInput placeholder="Beneficiary Bank">
+                    <mat-error class="error-wrap" *ngIf="transactionForm.get('bb').invalid && transactionForm.get('bb').errors?.required && transactionForm.get('bb').touched">
+                        <span class="error-field">Beneficiary Bank is required</span>
+                    </mat-error>
+                    <mat-error class="error-wrap" *ngIf="transactionForm.get('bb').errors?.pattern && transactionForm.get('bb').touched">
+                        <span class="error-field">Only characters allowed</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="formfield">
+                <mat-form-field class="example-full-width form-control">
+                    <input maxlength="14" numberOnly formControlName="baccnum" matInput placeholder="Beneficiary Account Number">
+                    <mat-error class="error-wrap" *ngIf="transactionForm.get('baccnum').errors?.required && transactionForm.get('baccnum').touched">
+                        <span class="error-field">Bank Account Number is required</span>
+                    </mat-error>
+                    <mat-error class="error-wrap" *ngIf="transactionForm.get('baccnum').errors?.pattern && transactionForm.get('baccnum').touched">
+                        <span class="error-field">Only numbers allowed</span>
+                    </mat-error>
+                    <mat-error class="error-wrap" *ngIf="transactionForm.get('baccnum').errors?.minlength && transactionForm.get('baccnum').touched">
+                        <span class="error-field">14 digits required</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="formfield">
+                <mat-form-field class="example-full-width form-control">
+                    <input formControlName="paydt" matInput placeholder="Payment Details">
+                    <mat-error class="error-wrap" *ngIf="transactionForm.get('paydt').errors?.required && transactionForm.get('paydt').touched">
+                        <span class="error-field">Payment Details is required</span>
+                    </mat-error>
+                    <mat-error class="error-wrap" *ngIf="transactionForm.get('paydt').errors?.pattern && transactionForm.get('paydt').touched">
+                        <span class="error-field">Only characters allowed</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="act-wrap">
+                <button [disabled]=!(transactionForm.valid) type="submit" class="bs-btn">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>

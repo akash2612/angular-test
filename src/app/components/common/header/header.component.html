@@ -1,0 +1,16 @@
+<div class="bs-header" *ngIf="authService.isLogin">
+  <button class="bs-btn typ-small typ-logout" (click)="logoutFunc()">logout</button>
+  <button *ngIf="authService.isVisible" class="menu-btn" menuButton>
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+  <ul class="nav-list">
+      <li class="nav-item">
+          <a routerLink="/newtransaction" routerLinkActive="active" class="nav-link"><span class="text">New Transaction</span></a>
+      </li>
+      <li class="nav-item">
+          <a routerLink="/viewtransaction" routerLinkActive="active" class="nav-link"><span class="text">View Transaction</span></a>
+      </li>
+  </ul>
+</div>

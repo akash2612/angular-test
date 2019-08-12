@@ -1,0 +1,29 @@
+<div class="lyt-content" [ngClass]="{'active':fetchService.isActive}">
+  <div class="lyt-card-wrap">
+    <h2 class="title">View Transaction</h2>
+    <ul class="card-list">
+      <li class="card-item" *ngFor="let item of fetchTransaction">
+        <div class="bs-card">
+          <ul class="data-wrap">
+            <li class="data-item">
+              <label>Customer Name</label>
+              <span class="value">{{item.customer_name}}</span>
+            </li>
+            <li class="data-item">
+              <label>Transfer Amount</label>
+              <span class="value">{{item['tansaction_details']['transfer_amount'] | currency:item['tansaction_details']['transfer_currency']:'symbol-narrow'}}</span>
+            </li>
+            <li class="data-item">
+              <label>Transfer Currency</label>
+              <span class="value">{{item['tansaction_details']['transfer_currency']}}</span>
+            </li>
+            <li class="data-item">
+              <label>Reference</label>
+              <span class="value">{{item.reference}}</span>
+            </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
