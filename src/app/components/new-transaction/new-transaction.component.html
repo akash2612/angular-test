@@ -13,7 +13,7 @@
             <div class="group-wrap" formGroupName="customerInfo">
                 <div class="formfield">
                     <mat-form-field class="example-full-width form-control">
-                        <input maxlength="5" numberOnly formControlName="cnumber" matInput placeholder="Customer Number" (blur)="getCustomerInfo()">
+                        <input maxlength="5" numberOnly formControlName="cnumber" matInput placeholder="Customer Number" (keyup)="getCustomerInfo()">
                         <mat-error class="error-wrap" *ngIf="transactionForm.get('customerInfo.cnumber').invalid && transactionForm.get('customerInfo.cnumber').touched">
                             <span class="error-field">Customer number is required</span>
                         </mat-error>

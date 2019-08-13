@@ -13,6 +13,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class NewTransactionComponent implements OnInit {
   @ViewChild(FormGroupDirective,{static:false}) formRef: FormGroupDirective;
+
   transactionForm = new FormGroup({
     reference: new FormControl('',[Validators.required]),
     customerInfo: new FormGroup({
@@ -46,6 +47,7 @@ export class NewTransactionComponent implements OnInit {
         // this.transactionForm.reset();
         this.toast.success('Transaction submitted successfully!');
         this.formRef.resetForm();
+        this.transacService.sqNo += 1;
         this.referenceGenerator();
       }else {
         this.toast.error('Something went wrong!');
@@ -92,9 +94,8 @@ export class NewTransactionComponent implements OnInit {
   referenceGenerator() {
     const cusString = 'CUS';
     var dtString = this.dateGetter();
-    var sqNo = Math.floor(Math.random() * 1001);
     this.transactionForm.patchValue({
-      reference:cusString+dtString+sqNo
+      reference:cusString+dtString+this.transacService.sqNo
     })
   }
 

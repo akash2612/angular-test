@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LogoutModalComponent } from './logout-modal.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 describe('LogoutModalComponent', () => {
   let component: LogoutModalComponent;
@@ -8,7 +9,8 @@ describe('LogoutModalComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LogoutModalComponent ]
+      declarations: [ LogoutModalComponent ],
+      imports: [MatDialogModule]
     })
     .compileComponents();
   }));

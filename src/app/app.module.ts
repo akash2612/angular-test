@@ -20,7 +20,6 @@ import { MenuDirective } from './shared/directives/custom.directive';
 import { LogoutModalComponent } from './components/common/logout-modal/logout-modal.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { NumberDirective } from './shared/directives/custom.directive';
-import { NgxSpinnerModule } from "ngx-spinner";
 
 
 
@@ -49,7 +48,6 @@ import { NgxSpinnerModule } from "ngx-spinner";
     RoutingModule,
     ToastrModule.forRoot(),
     MatDialogModule,
-    NgxSpinnerModule
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent],

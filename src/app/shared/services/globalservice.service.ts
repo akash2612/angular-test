@@ -9,6 +9,7 @@ export class GlobalserviceService {
   isLogin:Boolean = false;
   isActive:Boolean = false;
   isVisible:Boolean = false;
+  sqNo:number = 0;
   constructor(private http:HttpClient) { }
 
   authLogin(email: string,password:string) {
