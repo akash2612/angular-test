@@ -1,0 +1,98 @@
+// bs-header
+.bs-header {
+    z-index: 5;
+    padding: 15px;
+    background: #333;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    .menu-btn {
+        position: absolute;
+        top: 50%;
+        left: 15px;
+        transform: translateY(-50%);
+        .bar {
+            width: 25px;
+            height: 2px;
+            background: #fff;
+            display: block;
+            margin-bottom: 5px;
+            border-radius: 3px;
+            transform: translateY(0px) rotate(0deg);
+            transition: all 0.7s ease;
+        }
+        &.active {
+            .bar {
+                &:first-of-type {
+                    transform: translateY(9px) rotate(45deg);
+                }
+                &:nth-of-type(2) {
+                    width: 0;
+                }
+                &:last-of-type {
+                    transform: translateY(-5px) rotate(-45deg);
+                }
+            }
+            +.nav-list {
+                transform: translateX(0px);
+            }
+        }
+    }
+    .bs-btn {
+        &.typ-logout {
+            float: right;
+            &:focus {
+                border-color: #fff;
+            }
+        }
+    }
+    .nav-list {
+        position: fixed;
+        top: 67px;
+        bottom: 0;
+        left: 0;
+        width: 250px;
+        background: #282828;
+        transform: translateX(-250px);
+        transition: transform 0.5s ease-in-out;
+        .nav-item {
+            height: 50%;
+            position: relative;
+            border-bottom: 1px solid #fff;
+            .nav-link {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                color: #fff;
+                text-transform: uppercase;
+                font-weight: $font-light;
+                font-size: 2rem;
+                line-height: 2.2rem;
+                background: transparent;
+                transition: background 0.7s ease;
+                .text {
+                    text-align: center;
+                    position: absolute;
+                    top: 50%;
+                    left: 0;
+                    right: 0;
+                    transform: translateY(-50%);
+                }
+                &.active {
+                    background: #336e7b;
+                }
+            }
+            &:hover {
+                .nav-link {
+                    background: #336e7b;
+                }
+            }
+            &:last-of-type {
+                border-bottom: none;
+            }
+        }
+    }
+}

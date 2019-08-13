@@ -1,0 +1,23 @@
+// bs-card
+
+.bs-card {
+    border: 1px solid #333;
+    border-radius: 5px;
+    padding: 20px;
+    .data-item {
+        overflow: hidden;
+        margin-bottom: 10px;
+        label,
+        .value {
+            width: 50%;
+            float: left;
+        }
+        label {
+            font-weight: $font-bold;
+            text-transform: uppercase;
+        }
+        &:last-of-type {
+            margin-bottom: 0px;
+        }
+    }
+}

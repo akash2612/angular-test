@@ -32,7 +32,7 @@ export class NewTransactionComponent implements OnInit {
   customerModel:Customer;
   transacModel:Transaction;
 
-  constructor(private transacService: GlobalserviceService,private toast:ToastrService) { }
+  constructor(public transacService: GlobalserviceService,private toast:ToastrService) { }
 
   ngOnInit() {
     this.transacService.isVisible = true;
@@ -70,6 +70,13 @@ export class NewTransactionComponent implements OnInit {
           })
         }else {
           this.toast.error('Invalid Customer!');
+          this.transactionForm.patchValue({
+            customerInfo: {
+              cname: '',
+              address: '',
+              phnumber: ''
+            }
+          })
         }
       },(err:HttpErrorResponse) => {
         this.toast.error('Network Error!');

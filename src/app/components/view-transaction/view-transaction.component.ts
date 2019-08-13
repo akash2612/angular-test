@@ -8,7 +8,7 @@ import { GlobalserviceService } from '../../shared/services/globalservice.servic
 })
 export class ViewTransactionComponent implements OnInit {
 
-  constructor(private fetchService:GlobalserviceService) { }
+  constructor(public fetchService:GlobalserviceService) { }
 
   fetchTransaction:any[] = [];
 

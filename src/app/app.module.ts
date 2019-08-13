@@ -16,7 +16,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { RoutingModule } from './routing.module';
 import { AuthGuard } from './auth.guard';
 import { ToastrModule } from 'ngx-toastr';
-import { MenuDirective } from './shared/directives/custom.directive';
+import { MenuDirective, CharacterDirective } from './shared/directives/custom.directive';
 import { LogoutModalComponent } from './components/common/logout-modal/logout-modal.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { NumberDirective } from './shared/directives/custom.directive';
@@ -33,7 +33,8 @@ import { NumberDirective } from './shared/directives/custom.directive';
     ViewTransactionComponent,
     MenuDirective,
     LogoutModalComponent,
-    NumberDirective
+    NumberDirective,
+    CharacterDirective
   ],
   imports: [
     BrowserModule,

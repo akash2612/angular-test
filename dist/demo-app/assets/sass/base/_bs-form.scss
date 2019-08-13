@@ -1,0 +1,24 @@
+.bs-form {
+  .form-title {
+    font-weight: $font-light;
+    font-size: 2.6rem;
+    line-height: 2.8rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  .formfield {
+    margin: 10px 0;
+  }
+
+  .button-wrap {
+    text-align: center;
+  }
+  &.typ-center {
+    width: 60%;
+    margin: 0 auto;
+    padding: 30px 0px;
+    .act-wrap {
+      text-align: center;
+    }
+  }
+}

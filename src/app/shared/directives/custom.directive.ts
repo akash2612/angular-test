@@ -47,6 +47,29 @@ export class NumberDirective {
   constructor() {}
 }
 
+@Directive({
+  selector: '[characterOnly]',
+  providers:[
+    {provide: CharacterDirective,useClass:CharacterDirective}
+  ]
+})
+
+export class CharacterDirective {
+  @HostListener('keydown',['$event']) onkeydown(event) {
+    let e = <KeyboardEvent> event;
+    let ch = String.fromCharCode(e.keyCode);
+    let regex = new RegExp(/^[a-zA-Z\s]+$/);
+    if(e.key === 'Backspace' || e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+      return;
+    }
+    if(regex.test(ch)) {
+      return;
+    }else {
+      e.preventDefault();
+    }
+  }
+}
+
 
 export class CustomDirective {
 

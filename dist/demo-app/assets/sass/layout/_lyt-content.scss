@@ -1,0 +1,36 @@
+// lyt-content
+.lyt-content {
+    position: relative;
+    min-height: calc(100vh - 67px);
+    top: 67px;
+    transition: all 0.5s ease-in-out;
+    z-index: 2;
+    background: #fff;
+    margin-left: 0px;
+    .btn-wrap {
+        width: 80%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        overflow: hidden;
+        .left-wrap,
+        .right-wrap {
+            padding: 25px 0px;
+        }
+        .left-wrap {
+            float: left;
+            width: 50%;
+            text-align: center;
+            border-right: 1px solid #000;
+        }
+        .right-wrap {
+            float: right;
+            width: 50%;
+            text-align: center;
+        }
+    }
+    &.active {
+        margin-left: 250px;
+    }
+}

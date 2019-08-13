@@ -12,7 +12,7 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private authService: GlobalserviceService,private router: Router,private dialog: MatDialog) { }
+  constructor(public authService: GlobalserviceService,private router: Router,private dialog: MatDialog) { }
 
   // isAuth:Boolean = this;
 

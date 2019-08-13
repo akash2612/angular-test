@@ -1,0 +1,27 @@
+.bs-table {
+
+  td,
+  th {
+    padding: 20px;
+    text-align: center;
+  }
+
+  th {
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  tbody {
+    tr {
+      border-bottom: 1px solid #f1f1f1;
+    }
+  }
+
+  thead {
+    tr {
+      background: #fafafa;
+      border-bottom: 1px solid #ccc;
+    }
+  }
+
+}

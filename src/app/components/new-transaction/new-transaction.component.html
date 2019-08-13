@@ -46,7 +46,7 @@
             </div>
             <div class="formfield">
                 <mat-form-field class="example-full-width form-control">
-                    <input numberOnly formControlName="transferamt" matInput placeholder="Transfer Amount">
+                    <input numberOnly formControlName="transferamt" matInput placeholder="Transfer Amount" maxlength="15">
                     <mat-error class="error-wrap" *ngIf="transactionForm.get('transferamt').invalid && transactionForm.get('transferamt').touched">
                         <span class="error-field">Transfer Amount is required</span>
                     </mat-error>
@@ -68,7 +68,7 @@
             </div>
             <div class="formfield">
                 <mat-form-field class="example-full-width form-control">
-                    <input formControlName="bb" [value]="transactionForm.get('bb').value | uppercase" matInput placeholder="Beneficiary Bank">
+                    <input characterOnly formControlName="bb" [value]="transactionForm.get('bb').value | uppercase" matInput placeholder="Beneficiary Bank">
                     <mat-error class="error-wrap" *ngIf="transactionForm.get('bb').invalid && transactionForm.get('bb').errors?.required && transactionForm.get('bb').touched">
                         <span class="error-field">Beneficiary Bank is required</span>
                     </mat-error>
@@ -93,7 +93,7 @@
             </div>
             <div class="formfield">
                 <mat-form-field class="example-full-width form-control">
-                    <input formControlName="paydt" matInput placeholder="Payment Details">
+                    <input characterOnly formControlName="paydt" matInput placeholder="Payment Details">
                     <mat-error class="error-wrap" *ngIf="transactionForm.get('paydt').errors?.required && transactionForm.get('paydt').touched">
                         <span class="error-field">Payment Details is required</span>
                     </mat-error>

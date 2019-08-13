@@ -13,7 +13,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'main', component: MainViewComponent,canActivate:[AuthGuard] },
   { path: 'viewtransaction', component: ViewTransactionComponent,canActivate:[AuthGuard] },
-  { path: 'newtransaction', component: NewTransactionComponent,canActivate:[AuthGuard] }
+  { path: 'newtransaction', component: NewTransactionComponent,canActivate:[AuthGuard] },
+  { path: '**', redirectTo: 'main', pathMatch: 'full' }
 ];
 
 @NgModule({
