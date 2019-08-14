@@ -944,5 +944,11 @@ html input:disabled {
     line-height: 2.8rem;
     margin-bottom: 20px;
     text-transform: uppercase; }
+  .lyt-card-wrap .no-show {
+    font-size: 2.6rem;
+    line-height: 2.8rem;
+    margin: 20px 0px;
+    display: block;
+    text-align: center; }
 
 /*# sourceMappingURL=custom.css.map */
