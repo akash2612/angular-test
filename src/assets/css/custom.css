@@ -853,7 +853,8 @@ html input:disabled {
 
 .bs-modal {
   padding: 20px;
-  width: 300px; }
+  width: 300px;
+  overflow: hidden; }
   .bs-modal .bs-btn {
     padding: 10px;
     line-height: 1.7rem; }
