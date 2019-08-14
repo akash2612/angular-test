@@ -27,7 +27,7 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 1.	Used API for Login to fetch the list of users. Credentials are : { "email": "admin@admin.com", "password": "admin" }. Successful login stores a session key.
 2.	Implemented Auth Guard to protect the routes by checking the session key is valid or not.
 3.	Created a Global Service in which there are multiple functions for different API requests.
-4.	Created 2 Directives for Menu Opening and Numbers only restriction respectively.
+4.	Created 3 Directives for Menu Opening,Numbers only and Characters only restrictions respectively.
 5.	Used the Currency and Uppercase inbuilt pipes.
 6.	Created a Generic Model for both Customer and Transaction.
 7.	Used Angular Material.
