@@ -277,6 +277,10 @@ button {
   button[disabled] {
     opacity: 0.6;
     cursor: not-allowed; }
+    button[disabled]:hover {
+      color: initial; }
+      button[disabled]:hover:before {
+        content: none; }
   button.btn-link[disabled] {
     opacity: 1;
     color: #888888;
@@ -647,7 +651,8 @@ html input:disabled {
   text-transform: uppercase;
   transition: all 0.5s ease;
   letter-spacing: 1px;
-  position: relative; }
+  position: relative;
+  color: #333; }
   .bs-btn:before {
     content: '';
     position: absolute;
