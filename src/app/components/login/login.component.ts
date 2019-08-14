@@ -41,7 +41,6 @@ export class LoginComponent {
         this.toast.error('Invalid Login');
       }
     },(err)=> {
-      console.log(err);
       this.toast.error('Network Error');
     })
   }

@@ -32,12 +32,11 @@ export class MenuDirective {
 export class NumberDirective {
   @HostListener('keydown',['$event']) onkeydown(event) {
     let e = <KeyboardEvent> event;
-    let ch = String.fromCharCode(e.keyCode);
     let regex = new RegExp('^[0-9]*$');
     if(e.key === 'Backspace' || e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
       return;
     }
-    if(regex.test(ch)) {
+    if(regex.test(e.key)) {
       return;
     }else {
       e.preventDefault();
@@ -57,12 +56,11 @@ export class NumberDirective {
 export class CharacterDirective {
   @HostListener('keydown',['$event']) onkeydown(event) {
     let e = <KeyboardEvent> event;
-    let ch = String.fromCharCode(e.keyCode);
     let regex = new RegExp(/^[a-zA-Z\s]+$/);
     if(e.key === 'Backspace' || e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
       return;
     }
-    if(regex.test(ch)) {
+    if(regex.test(e.key)) {
       return;
     }else {
       e.preventDefault();

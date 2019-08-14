@@ -42,7 +42,6 @@ export class NewTransactionComponent implements OnInit {
     this.customerModel = new Customer(this.transactionForm.value.customerInfo.cnumber,this.transactionForm.value.customerInfo.cname,this.transactionForm.value.customerInfo.address,this.transactionForm.value.customerInfo.phnumber);
     this.transacModel = new Transaction(this.customerModel,this.transactionForm.value.reference,this.transactionForm.value.transferamt,this.transactionForm.value.currency,this.transactionForm.value.bb,this.transactionForm.value.ban,this.transactionForm.value.paydt);
     this.transacService.postTransaction(this.transacModel).subscribe(res => {
-      console.log(res);
       if(res.status == 'success') {
         // this.transactionForm.reset();
         this.toast.success('Transaction submitted successfully!');
