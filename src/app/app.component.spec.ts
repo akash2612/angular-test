@@ -4,6 +4,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { HeaderComponent } from './components/common/header/header.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { MatDialogModule } from '@angular/material/dialog';
+import { NgxLoadingModule } from 'ngx-loading';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -12,7 +13,7 @@ describe('AppComponent', () => {
         AppComponent,
         HeaderComponent
       ],
-      imports: [RouterTestingModule,HttpClientTestingModule,MatDialogModule]
+      imports: [RouterTestingModule,HttpClientTestingModule,MatDialogModule,NgxLoadingModule.forRoot({})]
     }).compileComponents();
   }));
 

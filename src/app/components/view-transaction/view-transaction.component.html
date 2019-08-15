@@ -1,8 +1,8 @@
 <div class="lyt-content" [ngClass]="{'active':fetchService.isActive}">
     <div class="lyt-card-wrap">
         <h2 class="title">View Transaction</h2>
-        <span class="no-show" *ngIf="fetchTransaction.length == 0">No Transactions available</span>
-        <ul class="card-list" *ngIf="fetchTransaction.length>0">
+        <span class="no-show" *ngIf="fetchTransaction.length == 0 && fetchService.loading == false">No Transactions available</span>
+        <ul class="card-list" *ngIf="fetchTransaction.length>0 && fetchService.loading == false">
             <li class="card-item" *ngFor="let item of fetchTransaction">
                 <div class="bs-card">
                     <ul class="data-wrap">

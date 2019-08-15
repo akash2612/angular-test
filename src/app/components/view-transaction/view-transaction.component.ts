@@ -13,11 +13,13 @@ export class ViewTransactionComponent implements OnInit {
   fetchTransaction:any[] = [];
 
   ngOnInit() {
+    this.fetchService.loading = true;
     this.fetchService.isVisible = true;
     this.fetchService.fetchTransaction().subscribe(responseData => {
       for(var key in responseData) {
         this.fetchTransaction.push(responseData[key]);
       }
+      this.fetchService.loading = false;
     });
 
   }

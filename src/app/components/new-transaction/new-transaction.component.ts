@@ -1,10 +1,10 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
 import { GlobalserviceService } from '../../shared/services/globalservice.service';
-import { Customer } from '../../shared/customer/customer.model';
-import { Transaction } from 'src/app/shared/transaction/transaction.model';
 import { FormGroup,FormControl,Validators, FormGroupDirective } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Customer } from '../../shared/model/customer/customer.model';
+import { Transaction } from '../../shared/model/transaction/transaction.model';
 
 @Component({
   selector: 'app-new-transaction',
@@ -39,19 +39,22 @@ export class NewTransactionComponent implements OnInit {
     this.referenceGenerator();
   }
   storeData() {
+    this.transacService.loading = true;
     this.customerModel = new Customer(this.transactionForm.value.customerInfo.cnumber,this.transactionForm.value.customerInfo.cname,this.transactionForm.value.customerInfo.address,this.transactionForm.value.customerInfo.phnumber);
     this.transacModel = new Transaction(this.customerModel,this.transactionForm.value.reference,this.transactionForm.value.transferamt,this.transactionForm.value.currency,this.transactionForm.value.bb,this.transactionForm.value.ban,this.transactionForm.value.paydt);
     this.transacService.postTransaction(this.transacModel).subscribe(res => {
       if(res.status == 'success') {
-        // this.transactionForm.reset();
+        this.transacService.loading = false;
         this.toast.success('Transaction submitted successfully!');
         this.formRef.resetForm();
         this.transacService.sqNo += 1;
         this.referenceGenerator();
       }else {
+        this.transacService.loading = false;
         this.toast.error('Something went wrong!');
       }
     },(err:HttpErrorResponse) => {
+      this.transacService.loading = false;
       this.toast.error('Network Error!');
     });
   }

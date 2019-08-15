@@ -20,6 +20,7 @@ import { MenuDirective, CharacterDirective } from './shared/directives/custom.di
 import { LogoutModalComponent } from './components/common/logout-modal/logout-modal.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { NumberDirective } from './shared/directives/custom.directive';
+import { NgxLoadingModule,ngxLoadingAnimationTypes } from 'ngx-loading';
 
 
 
@@ -49,6 +50,14 @@ import { NumberDirective } from './shared/directives/custom.directive';
     RoutingModule,
     ToastrModule.forRoot(),
     MatDialogModule,
+    NgxLoadingModule.forRoot({
+      animationType: ngxLoadingAnimationTypes.wanderingCubes,
+      backdropBackgroundColour: 'rgba(0,0,0,0.8)', 
+      backdropBorderRadius: '4px',
+      primaryColour: '#ffffff', 
+      secondaryColour: '#ffffff', 
+      tertiaryColour: '#ffffff'
+    })
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent],

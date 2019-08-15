@@ -6,7 +6,7 @@ export class Customer {
     public custAddress: string;
     public custPhn: number;
 
-    constructor(custNo,custName,custAddress,custPhn) {
+    constructor(custNo:number,custName:string,custAddress:string,custPhn:number) {
         this.custNo = custNo;
         this.custName = custName;
         this.custAddress = custAddress;

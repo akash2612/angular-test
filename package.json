@@ -23,6 +23,7 @@
     "@angular/router": "~8.2.0",
     "angular-material": "^1.1.19",
     "core-js": "^2.6.9",
+    "ngx-loading": "^3.0.1",
     "ngx-spinner": "^8.0.3",
     "ngx-toastr": "^10.0.4",
     "rxjs": "~6.4.0",

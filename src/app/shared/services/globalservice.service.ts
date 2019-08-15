@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Transaction } from '../transaction/transaction.model';
+import { Transaction } from '../model/transaction/transaction.model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +10,7 @@ export class GlobalserviceService {
   isActive:Boolean = false;
   isVisible:Boolean = false;
   sqNo:number = 0;
+  public loading:Boolean = false;
   constructor(private http:HttpClient) { }
 
   authLogin(email: string,password:string) {

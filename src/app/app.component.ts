@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GlobalserviceService } from './shared/services/globalservice.service';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
   title = 'demo-app';
-  constructor() {}
+  constructor(public globalService:GlobalserviceService) {}
   ngOnInit() {
   }
 }

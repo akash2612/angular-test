@@ -1,54 +1,27 @@
-<!-- <div class="lyt-login">
-  <div class="form-container">
-      <div class="login-wrap">
-          <form #inputData="ngForm" class="login-form bs-form" (ngSubmit)="onSubmit(inputData)">
-              <div class="formfield">
-                  <mat-form-field class="example-full-width form-control" [class.error]="email.invalid && email.touched">
-                      <input id="email" #email="ngModel" [pattern]="emailPattern" [(ngModel)]="loginUser.email" required type="email" matInput placeholder="Email" name="email">
-                  </mat-form-field>
-                  <div class="error-wrap" *ngIf="email.invalid && email.touched">
-                      <span class="error-field">Please enter a valid email</span>
-                  </div>
-              </div>
-              <div class="formfield">
-                  <mat-form-field class="example-full-width form-control" [class.error]="email.invalid && email.touched">
-                      <input #password="ngModel" required type="password" [(ngModel)]="loginUser.password" matInput placeholder="Password" name="password">
-                  </mat-form-field>
-                  <div class="error-wrap" *ngIf="password.invalid && password.touched">
-                      <span class="error-field">Please enter password</span>
-                  </div>
-              </div>
-              <div class="button-wrap">
-                  <button type="submit" class="bs-btn">Login</button>
-              </div>
-          </form>
-      </div>
-  </div>
-</div> -->
 <div class="lyt-login">
-        <div class="form-container">
-            <div class="login-wrap">
-                <form id="loginForm" [formGroup]="loginForm" class="login-form bs-form" (ngSubmit)="onSubmit()">
-                    <div class="formfield">
-                        <mat-form-field class="example-full-width form-control">
-                            <input id="email" formControlName="email" matInput placeholder="Email">
-                            <mat-error class="error-wrap" *ngIf="loginForm.get('email').invalid && loginForm.get('email').touched">
-                                <span class="error-field">Please enter a valid email</span>
-                            </mat-error>
-                        </mat-form-field>
-                    </div>
-                    <div class="formfield">
-                        <mat-form-field class="example-full-width form-control">
-                            <input type="password" formControlName="password" matInput placeholder="Password">
-                            <mat-error class="error-wrap" *ngIf="loginForm.get('password').invalid && loginForm.get('password').touched">
-                                <span class="error-field">Please enter password</span>
-                            </mat-error>
-                        </mat-form-field>
-                    </div>
-                    <div class="button-wrap">
-                        <button [disabled]="!(loginForm.valid)" type="submit" class="bs-btn">Login</button>
-                    </div>
-                </form>
-            </div>
+    <div class="form-container">
+        <div class="login-wrap">
+            <form id="loginForm" [formGroup]="loginForm" class="login-form bs-form" (ngSubmit)="onSubmit()">
+                <div class="formfield">
+                    <mat-form-field class="example-full-width form-control">
+                        <input id="email" formControlName="email" matInput placeholder="Email">
+                        <mat-error class="error-wrap" *ngIf="loginForm.get('email').invalid && loginForm.get('email').touched">
+                            <span class="error-field">Please enter a valid email</span>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="formfield">
+                    <mat-form-field class="example-full-width form-control">
+                        <input type="password" formControlName="password" matInput placeholder="Password">
+                        <mat-error class="error-wrap" *ngIf="loginForm.get('password').invalid && loginForm.get('password').touched">
+                            <span class="error-field">Please enter password</span>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="button-wrap">
+                    <button [disabled]="!(loginForm.valid)" type="submit" class="bs-btn">Login</button>
+                </div>
+            </form>
         </div>
-      </div>
+    </div>
+</div>

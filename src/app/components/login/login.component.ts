@@ -23,6 +23,7 @@ export class LoginComponent {
   constructor(private router:Router,private authService:GlobalserviceService,private toast:ToastrService) { }
 
   onSubmit() {
+    this.authService.loading = true;
     this.authService.authLogin(this.loginForm.value.email,this.loginForm.value.password).subscribe(responseData => {
       for(var key in responseData) {
         this.loginDetail.push(responseData[key]);
@@ -32,15 +33,18 @@ export class LoginComponent {
           this.authService.isLogin = true;
           sessionStorage.setItem('loginSession',String(this.authService.isLogin));
           this.router.navigate(['/main']);
+          this.authService.loading = false;
           break;
         }else {
           this.authService.isLogin = false;
         }
       }
       if(this.authService.isLogin == false) {
+        this.authService.loading = false;
         this.toast.error('Invalid Login');
       }
     },(err)=> {
+      this.authService.loading = false;
       this.toast.error('Network Error');
     })
   }
